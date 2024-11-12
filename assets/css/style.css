@@ -1,5 +1,15 @@
+@font-face {
+    font-family: wallpoet;
+    src: url(../fonts/Wallpoet-Regular.ttf)
+}
+
+
 .hidden {
     display: none;
+}
+
+body {
+    background-image: url("../images/bg.jfif");
 }
 /* Style général du conteneur de jeu */
 #gameContainer {
@@ -13,8 +23,69 @@
 /* Style pour le conteneur de la grille */
 #conteneur {
     display: grid;
-    grid-template-columns: repeat(7, 60px); /* 7 colonnes de 60px */
-    grid-template-rows: repeat(6, 60px);    /* 6 lignes de 60px */
+    grid-template-columns: repeat(7, 80px); /* 7 colonnes de 60px */
+    grid-template-rows: repeat(6, 80px);    /* 6 lignes de 60px */
     gap: 5px; /* Espace entre les cases */
-    margin-top: 20px;
+    margin-top: 100px;
+}
+
+h1 {
+    font-size: 60px;
+    font-family: wallpoet;
+    color: #ffffff;
+    background-color: #695f4c;
+    border: solid 3px #633000;
+    border-radius: 10px;
+    width: fit-content;
+    padding-inline: 150px;
+    margin: 20px;
+}
+
+
+.box {
+    background-color: #695f4c;
+    border: solid 3px #633000;
+}
+
+#twoPlayersButton {
+    font-size: 30px;
+    font-family: wallpoet;
+    color: #ffffff;
+    background-color: #695f4c;
+    border: solid 3px #633000;
+    border-radius: 10px;
+    width: fit-content;
+    padding-inline: 150px;
+    margin: 50px;
+    transition: background-color 0.3s ease;
+}
+
+#twoPlayersButton:hover {
+    background-color: #633000;
+    color: #695f4c;
+    border: solid 3px #695f4c;
+}
+
+#wordsContainer {
+    font-size: 30px;
+    font-family: wallpoet;
+    color: #ffffff;
+    background-color: #695f4c;
+    border: solid 3px #633000;
+    border-radius: 10px;
+    width: fit-content;
+    padding-inline: 150px;
+    margin: 70px;
+}
+
+.playerX {
+    font-size: 50px;
+    color: red; /* Example color for X */
+    font-family: wallpoet; /* Change font family */
+}
+
+.playerO {
+    font-size: 50px;
+    color: yellow; /* Example color for O */
+    font-family: wallpoet; /* Change font family */
 }
