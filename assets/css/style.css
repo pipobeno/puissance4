@@ -26,7 +26,7 @@ body {
     grid-template-columns: repeat(7, 80px); /* 7 colonnes de 60px */
     grid-template-rows: repeat(6, 80px);    /* 6 lignes de 60px */
     gap: 5px; /* Espace entre les cases */
-    margin-top: 100px;
+    margin-top: 50px;
 }
 
 h1 {
@@ -56,8 +56,26 @@ h1 {
     border-radius: 10px;
     width: fit-content;
     padding-inline: 150px;
-    margin: 50px;
+    margin: 20px;
     transition: background-color 0.3s ease;
+}
+#restart {
+    font-size: 30px;
+    font-family: wallpoet;
+    color: #ffffff;
+    background-color: #695f4c;
+    border: solid 3px #633000;
+    border-radius: 10px;
+    width: fit-content;
+    padding-inline: 150px;
+    margin: 20px;
+    transition: background-color 0.3s ease;
+}
+
+#restart:hover {
+    background-color: #633000;
+    color: #695f4c;
+    border: solid 3px #695f4c;
 }
 
 #twoPlayersButton:hover {
@@ -75,7 +93,7 @@ h1 {
     border-radius: 10px;
     width: fit-content;
     padding-inline: 150px;
-    margin: 70px;
+    margin: 30px;
 }
 
 .playerX {

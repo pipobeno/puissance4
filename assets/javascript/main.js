@@ -8,34 +8,42 @@ let conteneur = document.getElementById("conteneur");
 
 let twoPlayersButton = document.getElementById("twoPlayersButton");
 
+let restart = document.getElementById("restart");
+
+
 function initgame() {
     for (let i = 0; i < boxes.length; i++) {
         let box = boxes[i];
         box.addEventListener("click", () => {
-            // Calculer l'index de la colonne (en fonction de la grille 7x6)
-            let col = i % 7;  // La colonne de la case cliquée
+            // On calcule la colonne sur laquelle l'utilisateur a cliqué
+            let col = i % 7;  // Cela permet de déterminer la colonne en fonction de l'index
 
-            // Chercher la première case vide de bas en haut dans la colonne
-            for (let row = 5; row >= 0; row--) {  // On commence de la dernière ligne
-                let currentBox = boxes[row * 7 + col];  // Calculer l'index de la case dans la grille
+            // On cherche la première case vide de bas en haut dans cette colonne
+            for (let row = 5; row >= 0; row--) {
+                // On calcule l'index de la case dans la grille
+                let currentBox = boxes[row * 7 + col];
                 if (currentBox.textContent === "") {
-                    // Placer le jeton dans cette case
                     currentBox.textContent = currentPlayer;
-                    currentBox.classList.add(currentPlayer === "X" ? "playerX" : "playerO");
-
-                    // Vérifier si le joueur actuel a gagné
+                    if (currentPlayer === "X") {
+                        currentBox.classList.add("playerX");
+                    } else {
+                        currentBox.classList.add("playerO");
+                    }
                     if (checkWin()) {
                         wordsContainer.innerHTML = "Le joueur " + currentPlayer + " a gagné!";
                         return;
-                    } else if (matchNul()) {
+                    }
+                    else if (matchNul()) {
                         wordsContainer.innerHTML = "Match nul";
                         return;
                     }
-
-                    // Passer au joueur suivant
-                    currentPlayer = (currentPlayer === "X") ? "O" : "X";
+                    if (currentPlayer === "X") {
+                        currentPlayer = "O";
+                    } else {
+                        currentPlayer = "X";
+                    }
                     wordsContainer.textContent = "C'est au tour du joueur : " + currentPlayer;
-                    break; // Sortir de la boucle une fois le jeton placé
+                    break;
                 }
             }
         });
@@ -43,9 +51,11 @@ function initgame() {
 }
 
 
+
 function ChoicePlayer() {
     twoPlayersButton.classList.remove("hidden");
     twoPlayersButton.addEventListener("click", () => {
+        restart.classList.remove("hidden");
         wordsContainer.classList.remove("hidden");
         conteneur.classList.remove("hidden");
         twoPlayersButton.classList.add("hidden");
@@ -61,7 +71,7 @@ function checkWin() {
     const cols = 7;
     const winLength = 4;
 
-    // Parcourt chaque case de la grille
+
     for (let row = 0; row < rows; row++) {
         for (let col = 0; col < cols; col++) {
             let player = boxes[row * cols + col].textContent; // Jeton à la position actuelle
@@ -112,3 +122,12 @@ function matchNul() {
         }
     }
 }
+
+function replay() {
+    restart.addEventListener("click", () => {
+        location.reload();
+    }
+    )
+}
+
+replay()
